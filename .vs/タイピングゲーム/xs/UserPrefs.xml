@@ -1,0 +1,21 @@
+﻿<Properties StartupConfiguration="{D56D5B22-62D9-07CD-34AE-DF984FD9C85F}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script.cs">
+    <Files>
+      <File FileName="Assets/Script.cs" Line="21" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="Unity" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="1561dac4-1e24-4ee5-be5a-a4c15d0e648b" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
