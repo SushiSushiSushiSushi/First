@@ -4697,46 +4697,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 020c7c46ca9b04abfb16cb34605bca62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel1: {fileID: 1327164994}
-  panel2: {fileID: 963811297}
-  panel3: {fileID: 1257240933}
-  right: {fileID: 1196232436}
-  left: {fileID: 199365522}
-  alphabets:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  A: {fileID: 69225607}
-  B: {fileID: 1422809594}
-  C: {fileID: 817911251}
-  D: {fileID: 940785880}
-  E: {fileID: 1028351355}
-  level: 0
-  allscore: 0
-  time: 1
+  gameobject:
+  - {fileID: 1327164994}
+  - {fileID: 963811297}
+  - {fileID: 1257240933}
+  - {fileID: 1196232436}
+  - {fileID: 199365522}
+  text:
+  - {fileID: 69225607}
+  - {fileID: 1422809594}
+  - {fileID: 817911251}
+  - {fileID: 940785880}
+  - {fileID: 1028351355}
+  Int: 000000000000000000000000
+  Float:
+  - 0
+  - 0
+  - 100
 --- !u!4 &2056106318
 Transform:
   m_ObjectHideFlags: 0

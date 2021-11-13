@@ -5,211 +5,206 @@ using UnityEngine.UI;
 
 public class Script : MonoBehaviour
 {
-    public GameObject panel1; 
-    public GameObject panel2;
-    public GameObject panel3;
-    public GameObject right;
-    public GameObject left;
-    public GameObject[] alphabets;
-    public Text A;
-    public Text B;
-    public Text C;
-    public Text D;
-    public Text E;
-    public int level;
-    public int allscore;
-    Vector3 startPosition, targetPosition;
-    private Vector3 velocity = Vector3.zero;
-    public float time = 1F;
+    public GameObject[] gameobject;//0~2はパネル、3~4は枠組み、5~31はアルファベット;
+    public Text[] text;//0~4は選択画面の右側のテキスト
+    public int[] Int;//0はレベル、1は今までの合計スコア、2はゲーム開始画面に出るやつに使うやつの時間
+    public float[] Float;//0~1はゲーム開始画面に出るやつに使うやつの距離、2はーム開始画面に出るやつに使うやつの速度
+    private Vector3 Tarpos = new Vector3(5.5f, 0, 0);
+    private Vector3 Tarpos2 = new Vector3(-5.5f, 0, 0);
+    private Vector3 Defpos = new Vector3(0, 0, 0);
+    private Vector3 Defpos2 = new Vector3(0, 0, 0);
+    private bool trigar = false;
+    private float t;
     // Start is called before the first frame update
     void Start()
     {
-
+        Float[0] = Vector3.Distance(Tarpos, Defpos);
+        Float[1] = Vector3.Distance(Tarpos2, Defpos2);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (level == 1)
+        if (Int[0] == 1)
         {
             //レベル1　ゲームスタート
         }
-        if (level == 2)
+        if (Int[0] == 2)
         {
             //レベル2　ゲームスタート
         }
-        if (level == 3)
+        if (Int[0] == 3)
         {
             //レベル3　ゲームスタート
         }
-        if (level == 4)
+        if (Int[0] == 4)
         {
             //レベル4　ゲームスタート
         }
-        if (level == 5)
+        if (Int[0] == 5)
         {
             //レベル5　ゲームスタート
+        }
+        if (trigar == true)
+        {
+            gameobject[3].transform.position = Vector3.Lerp(Tarpos, Defpos, t*Float[2]/Float[0]);
+            gameobject[4].transform.position = Vector3.Lerp(Tarpos2, Defpos2, t * Float[2] / Float[1]); ;
+            t+=0.1f*Time.deltaTime;
         }
     }
     public void OnClick1()
     {
-        panel1.gameObject.SetActive(true);
-        if (allscore >= 0)
+        gameobject[0].gameObject.SetActive(true);
+        if (Int[1] >= 0)
         {
-            A.text = "解放済み";
+            text[0].text = "解放済み";
         }
         else
         {
-            A.text = "未解放";
+            text[0].text = "未解放";
         }
-        if(allscore >= 10)
+        if(Int[1] >= 10)
         {
-            B.text = "解放済み";
-        }
-        else
-        {
-            B.text = "未解放";
-        }
-        if(allscore >= 20)
-        {
-            C.text = "解放済み";
+            text[1].text = "解放済み";
         }
         else
         {
-            C.text = "未解放";
+            text[1].text = "未解放";
         }
-        if(allscore >= 30)
+        if(Int[1] >= 20)
         {
-            D.text = "解放済み";
-        }
-        else
-        {
-            D.text = "未解放";
-        }
-        if(allscore >= 40)
-        {
-            E.text = "解放済み";
+            text[2].text = "解放済み";
         }
         else
         {
-            E.text = "未解放";
+            text[2].text = "未解放";
+        }
+        if(Int[1] >= 30)
+        {
+            text[3].text = "解放済み";
+        }
+        else
+        {
+            text[3].text = "未解放";
+        }
+        if(Int[1] >= 40)
+        {
+            text[4].text = "解放済み";
+        }
+        else
+        {
+            text[4].text = "未解放";
         }
     }
     public void OnClick2()
     {
-        panel1.gameObject.SetActive(false);
+        gameobject[0].gameObject.SetActive(false);
     }
     public void OnClick3()
     {
-        panel2.gameObject.SetActive(true);
+        gameobject[1].gameObject.SetActive(true);
     }
     public void OnClick4()
     {
-        panel2.gameObject.SetActive(false);
+        gameobject[1].gameObject.SetActive(false);
     }
     public void OnClick5()
     {
-        if (allscore >= 0)
+        if (Int[1] >= 0)
         {
-            right.transform.position = Vector3.SmoothDamp(new Vector3(0, 0, 0), targetPosition, ref velocity, time);
-            left.transform.position = Vector3.SmoothDamp(new Vector3(0, 0, 0), targetPosition, ref velocity, time);
-            panel1.gameObject.SetActive(false);
-            panel2.gameObject.SetActive(false);
-            panel3.gameObject.SetActive(false);
-            level = 1;
+            trigar = true;
+            gameobject[0].gameObject.SetActive(false);
+            gameobject[1].gameObject.SetActive(false);
+            gameobject[2].gameObject.SetActive(false);
+            Int[0] = 1;
         }
         else
         {
-            A.text = "未解放です!!";
+            text[0].text = "未解放です!!";
             Invoke("TextA",1);
         }
     }
     public void OnClick6()
     {
-        if (allscore >= 100)
+        if (Int[1] >= 100)
         {
-            right.transform.position = Vector3.SmoothDamp(new Vector3(0, 0, 0), targetPosition, ref velocity, time);
-            left.transform.position = Vector3.SmoothDamp(new Vector3(0, 0, 0), targetPosition, ref velocity, time);
-            panel1.gameObject.SetActive(false);
-            panel2.gameObject.SetActive(false);
-            panel3.gameObject.SetActive(false);
-            level = 2;
+            trigar = true;
+            gameobject[0].gameObject.SetActive(false);
+            gameobject[1].gameObject.SetActive(false);
+            gameobject[2].gameObject.SetActive(false);
+            Int[0] = 2;
         }
         else
         {
-            B.text = "未解放です!!";
+            text[1].text = "未解放です!!";
             Invoke("TextB", 1);
         }
     }
     public void OnClick7()
     {
-        if (allscore >= 100)
+        if (Int[1] >= 100)
         {
-            right.transform.position = Vector3.SmoothDamp(new Vector3(0, 0, 0), targetPosition, ref velocity, time);
-            left.transform.position = Vector3.SmoothDamp(new Vector3(0, 0, 0), targetPosition, ref velocity, time);
-            panel1.gameObject.SetActive(false);
-            panel2.gameObject.SetActive(false);
-            panel3.gameObject.SetActive(false);
-            level = 3;
+            trigar = true;
+            gameobject[0].gameObject.SetActive(false);
+            gameobject[1].gameObject.SetActive(false);
+            gameobject[2].gameObject.SetActive(false);
+            Int[0] = 3;
         }
         else
         {
-            C.text = "未解放です!!";
+            text[2].text = "未解放です!!";
             Invoke("TextC", 1);
         }
     }
     public void OnClick8()
     {
-        if (allscore >= 100)
+        if (Int[1] >= 100)
         {
-            right.transform.position = Vector3.SmoothDamp(new Vector3(0, 0, 0), targetPosition, ref velocity, time);
-            left.transform.position = Vector3.SmoothDamp(new Vector3(0, 0, 0), targetPosition, ref velocity, time);
-            panel1.gameObject.SetActive(false);
-            panel2.gameObject.SetActive(false);
-            panel3.gameObject.SetActive(false);
-            level = 4;
+            trigar = true;
+            gameobject[0].gameObject.SetActive(false);
+            gameobject[1].gameObject.SetActive(false);
+            gameobject[2].gameObject.SetActive(false);
+            Int[0] = 4;
         }
         else
         {
-            D.text = "未解放です!!";
+            text[3].text = "未解放です!!";
             Invoke("TextD", 1);
         }
     }
     public void OnClick9()
     {
-        if (allscore >= 100)
+        if (Int[1] >= 100)
         {
-            right.transform.position = Vector3.SmoothDamp(new Vector3(0, 0, 0), targetPosition, ref velocity, time);
-            left.transform.position = Vector3.SmoothDamp(new Vector3(0, 0, 0), targetPosition, ref velocity, time);
-            panel1.gameObject.SetActive(false);
-            panel2.gameObject.SetActive(false);
-            panel3.gameObject.SetActive(false);
-            level = 5;
+            gameobject[0].gameObject.SetActive(false);
+            gameobject[1].gameObject.SetActive(false);
+            gameobject[2].gameObject.SetActive(false);
+            Int[0] = 5;
         }
         else
         {
-            E.text = "未解放です!!";
+            text[4].text = "未解放です!!";
             Invoke("TextE", 1);
         }
     }
     void TextA()
     {
-        A.text = "未解放";
+        text[0].text = "未解放";
     }
     void TextB()
     {
-        B.text = "未解放";
+        text[1].text = "未解放";
     }
     void TextC()
     {
-        C.text = "未解放";
+        text[2].text = "未解放";
     }
     void TextD()
     {
-        D.text = "未解放";
+        text[3].text = "未解放";
     }
     void TextE()
     {
-        E.text = "未解放";
+        text[4].text = "未解放";
     }
 }
