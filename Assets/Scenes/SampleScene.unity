@@ -2290,7 +2290,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3131,7 +3131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1257240934
 Transform:
   m_ObjectHideFlags: 0
@@ -4697,10 +4697,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 020c7c46ca9b04abfb16cb34605bca62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameobject:
+  panel:
   - {fileID: 1327164994}
   - {fileID: 963811297}
   - {fileID: 1257240933}
+  - {fileID: 0}
+  corner:
   - {fileID: 1196232436}
   - {fileID: 199365522}
   text:
